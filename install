@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "=========================================="
+echo "Podman NodeJS TestInstallation"
+echo "Environment: Development"
+echo "Container Runtime: Podman"
+echo "=========================================="
