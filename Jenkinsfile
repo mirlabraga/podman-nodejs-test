@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'podman-agent' }  // Node where Podman is installed
+  agent any  // Node where Podman is installed
   stages {
     stage('Build image') {
       steps {
