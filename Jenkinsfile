@@ -1,25 +1,26 @@
 pipeline {
-    agent {
-        kubernetes {
-            yaml """
-apiVersion: v1
-kind: Pod
-spec:
-  containers:
-  - name: podman
-    image: docker.io/library/podman:latest
-    command:
-    - cat
-    tty: true
-"""
-        }
-    }
-
+//     agent {
+//         kubernetes {
+//             yaml """
+// apiVersion: v1
+// kind: Pod
+// spec:
+//   containers:
+//   - name: podman
+//     image: docker.io/library/podman:latest
+//     command:
+//     - cat
+//     tty: true
+// """
+//         }
+//     }
+   agent any
     stages {
         stage('Build') {
             steps {
                 container('podman') {
-                    sh 'podman --version'
+                  sh 'apt update -y && apt install -y podman'
+                  sh 'podman --version'
                 }
             }
         }
