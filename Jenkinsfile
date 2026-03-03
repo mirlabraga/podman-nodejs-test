@@ -1,30 +1,41 @@
 pipeline {
-    agent {
-        kubernetes {
-            yaml """
-apiVersion: v1
-kind: Pod
-spec:
-  containers:
-  - name: podamn
-    image: docker.io/library/podman:latest
-    command:
-    - cat
-    tty: true
-"""
-        }
-    }
-
-    stages {
-        stage('Build') {
-            steps {
-                container('maven') {
-                    sh 'mvn -version'
-                }
-            }
-        }
-    }
+   agent any
+   stages {
+      stage('Podman docker-compose') {
+         steps {
+            sh './install'
+         }
+      }
+   }
 }
+
+// pipeline {
+// //     agent {
+// //         kubernetes {
+// //             yaml """
+// // apiVersion: v1
+// // kind: Pod
+// // spec:
+// //   containers:
+// //   - name: podamn
+// //     image: docker.io/library/podman:latest
+// //     command:
+// //     - cat
+// //     tty: true
+// // """
+// //         }
+// //     }
+
+//     stages {
+//         stage('Build') {
+//             steps {
+//                 container('maven') {
+//                     sh 'mvn -version'
+//                 }
+//             }
+//         }
+//     }
+// }
 
 // pipeline {
 //   agent {
