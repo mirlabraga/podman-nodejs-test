@@ -48,7 +48,6 @@ pipeline {
               echo "Environment: Development"
               echo "Container Runtime: Podman"
               echo "=========================================="
-              podman build -t helloworld .
               '''
             }
          }
