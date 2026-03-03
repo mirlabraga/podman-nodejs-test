@@ -6,7 +6,7 @@ apiVersion: v1
 kind: Pod
 spec:
   containers:
-  - name: podamn
+  - name: podman
     image: docker.io/library/podman:latest
     command:
     - cat
@@ -18,7 +18,7 @@ spec:
     stages {
         stage('Build') {
             steps {
-                container('podamn') {
+                container('podman') {
                     sh 'podman --version'
                 }
             }
