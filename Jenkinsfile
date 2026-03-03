@@ -1,7 +1,7 @@
 pipeline {
-  agent {
-      kubernetes {
-      defaultContainer 'podman'
+  agent any
+      // kubernetes {
+      // defaultContainer 'podman'
 //      yaml '''
 // ---
 // apiVersion: v1
@@ -37,7 +37,7 @@ pipeline {
 //     - emptyDir: {}
 //       name: tmp-volume
 //       '''
-      }}
+      // }}
    stages {
       stage('Podman Build') {
          steps {
