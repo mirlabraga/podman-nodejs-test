@@ -32,7 +32,10 @@ pipeline {
    stages {
       stage('Podman docker-compose') {
          steps {
-            sh 'apt update -y && apt install -y podman'
+            sh '''  set +x
+                     apt-get update && apt-get install dnsutils -y
+                     apt-get install -y podman
+                     podman --version'''   
             sh './install'
          }
       }
