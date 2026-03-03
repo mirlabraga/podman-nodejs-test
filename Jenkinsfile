@@ -32,9 +32,7 @@ pipeline {
    stages {
       stage('Podman docker-compose') {
          steps {
-            sh '''  
-                podman --version
-                podman build -t --network podman helloworld .'''   
+            sh 'podman --version'
             sh './install'
          }
       }
