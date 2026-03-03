@@ -43,26 +43,31 @@ pipeline {
          steps {
             container('podman') {
               sh '''
-              echo -e 'FROM busybox\nRUN echo "hello world"' | podman --events-backend=file build -t  ghcr.io/mysticrenji/hello:latest -
+              echo "=========================================="
+              echo "Podman NodeJS TestBuild"
+              echo "Environment: Development"
+              echo "Container Runtime: Podman"
+              echo "=========================================="
+              podman build -t helloworld .
               '''
             }
          }
       }
-      stage('Podman docker-compose') {
-         steps {
-            container('podman') {
-              sh '''
-              git clone https://github.com/mysticrenji/podman-experiments.git
-              cd podman-experiments
-              podman create network pod-net
-              podman-compose -t identity up -d
-              sleep 45
-              podman-compose -t identity down
-              podman images
-              '''
-            }
-         }
-      }
+      // stage('Podman docker-compose') {
+      //    steps {
+      //       container('podman') {
+      //         sh '''
+      //         git clone https://github.com/mysticrenji/podman-experiments.git
+      //         cd podman-experiments
+      //         podman create network pod-net
+      //         podman-compose -t identity up -d
+      //         sleep 45
+      //         podman-compose -t identity down
+      //         podman images
+      //         '''
+      //       }
+      //    }
+      // }
    }
 }
 // pipeline {
