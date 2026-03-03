@@ -14,29 +14,30 @@ pipeline {
 // """
 //         }
 //     }
-   agent any
-    stages {
-        stage('Build') {
-            steps {
-                container('podman') {
-                  sh 'apt update -y && apt install -y podman'
-                  sh 'podman --version'
-                }
-            }
-        }
-    }
-}
-
-// pipeline {
 //    agent any
 //    stages {
-//       stage('Podman docker-compose') {
+//       stage('Build') {
 //          steps {
-//             sh './install'
+//                container('podman') {
+//                sh 'apt update -y && apt install -y podman'
+//                sh 'podman --version'
+//                }
 //          }
 //       }
 //    }
 // }
+
+pipeline {
+   agent any
+   stages {
+      stage('Podman docker-compose') {
+         steps {
+            sh 'apt update -y && apt install -y podman'
+            sh './install'
+         }
+      }
+   }
+}
 
 
 
