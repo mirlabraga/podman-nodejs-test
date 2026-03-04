@@ -35,7 +35,7 @@ pipeline {
          steps {
             sh 'podman --version'
             sh 'podman info'
-            sh 'podman ps'
+            sh 'podman run --privileged quay.io/podman/stable podman build -t almaci .'
             // sh './install'
          }
       }
