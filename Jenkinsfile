@@ -33,7 +33,8 @@ pipeline {
       stage('Podman docker-compose') {
          steps {
             sh 'podman --version'
-            sh './install'
+            sh 'podman build -t helloworld .'
+            // sh './install'
          }
       }
    }
