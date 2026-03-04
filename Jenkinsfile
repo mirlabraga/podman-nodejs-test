@@ -33,8 +33,8 @@ pipeline {
    stages {
       stage('Podman docker-compose') {
          steps {
-            sh 'podman --version'
-            sh 'podman info'
+            // sh 'podman --version'
+            // sh 'podman info'
             // sh 'podman run --privileged quay.io/podman/stable podman build -t almaci .'
             sh './install'
          }
