@@ -1,7 +1,7 @@
 #!/bin/bash
 
 podman build -t --network podman helloworld .
-podman run -p 3004:3004 helloworld
+# podman run -p 3004:3004 helloworld
 
 echo "=========================================="
 echo "Podman NodeJS TestInstallation"
