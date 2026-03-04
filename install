@@ -1,6 +1,6 @@
 #!/bin/bash
 
-podman build -t --network podman helloworld .
+podman build -t helloworld .
 podman run -p 3004:3004 helloworld
 
 echo "=========================================="
