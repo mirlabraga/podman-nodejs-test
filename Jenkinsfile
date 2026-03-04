@@ -28,7 +28,7 @@
 // }
 
 pipeline {
-   agent any
+   agent { label 'podman-agent' } 
    stages {
       stage('Podman docker-compose') {
          steps {
