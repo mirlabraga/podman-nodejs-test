@@ -33,7 +33,7 @@ pipeline {
       stage('Podman docker-compose') {
          steps {
             sh 'podman --version'
-            sh 'podman build -t helloworld .'
+            sh 'podman run --rm quay.io/podman/stable:latest podman --version'
             // sh './install'
          }
       }
